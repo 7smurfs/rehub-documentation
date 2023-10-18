@@ -1,0 +1,23 @@
+@startuml
+title Dijagram arhitekture sustava
+
+skinparam TitleFontSize 20
+skinparam ParticipantPadding 20
+skinparam BoxPadding 20
+hide footbox
+
+actor "Klijent\n<Browser>" as client #000000
+
+box "Azure Cloud" #ADD8E6
+  collections rehub_hub as "REHUB Backend" #90EE90
+  database rehub_db as "REHUB DB" #336791
+end box
+
+box "Centralni zdravstveni sustav" #FFFFFF
+  database patient_db as "Podaci zdravstvenog sustava" #336791
+end box
+
+client <<-->> rehub_hub
+& rehub_hub <<-->> patient_db : Validacija korisničkih podataka
+& rehub_hub <<-->> rehub_db : Spremanje i dohvatanje podataka
+@enduml
