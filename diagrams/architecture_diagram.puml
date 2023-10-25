@@ -19,5 +19,5 @@ end box
 
 client <<-->> rehub_hub
 & rehub_hub <<-->> patient_db : Validacija korisničkih podataka
-& rehub_hub <<-->> rehub_db : Spremanje i dohvatanje podataka
+& rehub_hub <<-->> rehub_db : Spremanje i dohvaćanje podataka
 @enduml
