@@ -17,7 +17,12 @@ box "Centralni zdravstveni sustav" #FFFFFF
   database patient_db as "Podaci zdravstvenog sustava" #336791
 end box
 
+box "Centralni sustav za podatke građana" #FFFFFF
+  database pii_db as "Podaci građana RH" #336791
+end box
+
 client <<-->> rehub_hub
-& rehub_hub <<-->> patient_db : Validacija korisničkih podataka
+& rehub_hub <<-->> patient_db : Validacija podataka za radnike u medicinskom sektoru
+& rehub_hub <<-->> pii_db : Validacija podataka korisnika aplikacije
 & rehub_hub <<-->> rehub_db : Spremanje i dohvaćanje podataka
 @enduml
