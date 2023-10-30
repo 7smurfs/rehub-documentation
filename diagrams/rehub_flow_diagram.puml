@@ -1,0 +1,39 @@
+@startuml
+title ReHub
+
+skinparam TitleFontSize 20
+skinparam ParticipantPadding 50
+
+actor "Klijent\n<Browser>" as client #000000
+participant "ReHub front-end" as rehub_front #ADD8E6
+participant "ReHub back-end" as rehub_back #90EE90
+database rehub_db as "REHUB DB" #336791
+database doctor_db as "Podaci zdravstvenih radnika" #336791
+database pii_db as "Podaci građana RH" #336791
+
+...
+== REGISTRACIJA KLIJENTA (PACIJENTA) ==
+...
+
+client ->> rehub_front :Klijent unio potrebne podatke za registraciju
+rehub_front ->> rehub_back :POST > /api/v1/patient
+rehub_back -->> pii_db :Provjera osobnih podataka
+rehub_back <<->> rehub_db :INSERT pacijent_podaci
+rehub_back ->> rehub_front :STATUS 201 CREATED
+rehub_front ->> client :Nastavak na korisničku stranicu
+
+...
+== PRIJAVA KLIJENTA ==
+...
+
+client ->> rehub_front :Klijent unio potrebne podatke za prijavu
+rehub_front ->> rehub_back :POST > /api/v1/auth/login
+rehub_back -->>
+rehub_back <<->> rehub_db :FETCH patient_podaci
+rehub_back ->> rehub_front :STATUS 200 OK {podaci, JWT token}
+rehub_front ->> client :Nastavak na korisničku stranicu
+
+
+
+
+@enduml
