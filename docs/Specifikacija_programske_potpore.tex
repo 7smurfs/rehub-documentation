@@ -645,30 +645,45 @@
 			\subsection{Sekvencijski dijagrami}
 				
 				U sljedećem dijelu prikazani su sekvencijski dijagrami i njihovi opisi.
-                \subsubsection{Obrazac uporabe UC18 – Prikaz svih pacijenata i UC25 – Prikaz svih zaposlenika}
+                \subsubsection{Obrazac uporabe UC5 – Dodavanje zaposlenika, UC6 - Brisanje zaposlenika i UC23 – Dodjela administratorskih ovlasti}
 
-                    Korisnik odabire opciju "Prikaži sve pacijente" ili "Prikaži sve zaposlenike" unutar web-aplikacije. Web-aplikacija iz baze podataka dohvaća sve relevantne informacije o pacijentima odnosno zaposlenicima. Ako baza podataka vrati informacije o pacijentima, web-aplikacija ih prikazuje korisniku, omogućujući mu pregled detalja poput imena, adrese, kontakt informacija itd. U suprotnom, ispisuje poruku "Nema dostupnih pacijenata". Ako korisnik odabere opciju "Prikaži sve zaposlenike", web-aplikacija prikazuje informacije o svim zaposlenicima, uključujući njihova imena, pozicije, kontakt informacije itd. U suprotnom, ispisuje poruku "Nema dostupnih zaposlenika".
+                    
+                    Kada korisnik odabere opciju "Dodavanje zaposlenika", web-aplikacija omogućuje korisniku unos svih relevantnih podataka o novom zaposleniku. Nakon završetka unosa, aplikacija automatski ažurira bazu podataka s novim informacijama.U slučaju odabira opcije "Brisanje zaposlenika", web-aplikacija pristupa bazi podataka kako bi prikazala popis trenutno zaposlenih osoba. Korisnik ima mogućnost odabira zaposlenika koje želi izbrisati, a nakon potvrde brisanja, aplikacija ažurira bazu podataka u skladu s korisnikovim zahtjevom. Kada korisnik odabere opciju "Dodjela administratorskih ovlasti", web-aplikacija pruža korisniku mogućnost odabira zaposlenika kojima želi dodijeliti administratorske ovlasti. Nakon što korisnik izabere zaposlenike, aplikacija ažurira bazu podataka s promijenjenim ovlastima za odabrane osobe. U situaciji kada baza podataka ne sadrži informacije o zaposlenicima u skladu s odabranim opcijama (primjerice, nema zaposlenika za brisanje ili dodjelu administratorskih ovlasti), web-aplikacija će prikazati odgovarajuću poruku, obavještavajući korisnika o nedostatku dostupnih podataka za izvršenje odabrane radnje.
 
                 \begin{figure}[H]
-			         \includegraphics[scale=0.7]{dijagrami/Sequence diagram for ReHub admin.jpeg}
+			         \includegraphics[scale=0.7]{dijagrami/Sequence diagram RH.jpeg}
 			         \centering
-			         \caption{Sekvencijski dijagram za UC18/25}
+			         \caption{Sekvencijski dijagram za UC5/6/23}
 			         \label{fig:SequenceDiagram1}
 		        \end{figure}
 
                 \eject
 
-                \subsubsection{Obrazac uporabe UC8 – Prikaz svih učestalih pitanja, UC11 – Pregled svih soba i UC15 – Prikaz svih oprema}
+                \subsubsection{Obrazac uporabe UC22 - Unos rezultata terapije}
 
-                    Korisnik odabire opciju "Učestala pitanja" unutar web-aplikacije. Web-aplikacija iz baze podataka dohvaća sve učestala pitanja. Ako postoje učestala pitanja, aplikacija ih prikazuje korisniku, pružajući odgovore i relevantne informacije. Ako nema učestalih pitanja, ispisuje poruku "Nema dostupnih učestalih pitanja." Dodatna funkcionalnost: Korisnik ima mogućnost filtriranja pitanja po kategorijama ili ključnim riječima. Korisnik odabire opciju "Pregled svih soba" unutar web-aplikacije. Web-aplikacija iz baze podataka dohvaća sve informacije o sobama. Ako postoje sobe, aplikacija ih prikazuje korisniku s detaljima poput broja sobe, vrste, dostupnih sadržaja itd. Ako nema dostupnih soba, ispisuje poruku "Nema dostupnih soba." Dodatna funkcionalnost: Korisnik može filtrirati sobe prema vrsti, kapacitetu ili dostupnim sadržajima. Korisnik odabire opciju "Prikaz svih oprema" unutar web-aplikacije. Web-aplikacija iz baze podataka dohvaća informacije o svim dostupnim opremama. Ako postoje informacije o opremama, aplikacija ih prikazuje korisniku, pružajući detalje o vrstama opreme, količini dostupnih itd. Ako nema dostupnih informacija o opremama, ispisuje poruku "Nema dostupne opreme." Dodatna funkcionalnost: Korisnik može filtrirati opremu prema vrsti ili dostupnosti.
+                    Kada zaposlenik pokreće proces unosa rezultata terapije, prvo odabire pacijenta iz dostupne liste. Nakon odabira pacijenta, web-aplikacija provjerava bazu podataka kako bi dohvatila relevantne podatke o tom pacijentu. Ako pacijent nije pronađen, sustav ispisuje poruku o pogrešci, obavještavajući zaposlenika o nedostatku informacija. U slučaju uspješnog pronalaska pacijenta, zaposlenik unosi rezultate terapije. Uneseni podaci o rezultatima terapije zatim se upisuju u bazu podataka. Nakon uspješnog zapisivanja, sustav prikazuje na zaslonu potvrdu o uspješno unesenom zapisu, pružajući zaposleniku vizualnu potvrdu. Dodatno, nakon unosa rezultata, pacijent ima mogućnost pregleda svojih rezultata terapije unutar web-aplikacije. To omogućuje pacijentu praćenje vlastitog napretka i informiranje o rezultatima terapije. 
 
                     \begin{figure}[H]
-			         \includegraphics[scale=0.7]{dijagrami/Sequence diagram for ReHub.jpeg}
+			         \includegraphics[scale=0.7]{dijagrami/Sequence diagram uc22.jpeg}
 			         \centering
-			         \caption{Sekvencijski dijagram za UC8/11/15}
+			         \caption{Sekvencijski dijagram za UC22}
 			         \label{fig:SequenceDiagram2}
 		          \end{figure}
                 
+				\eject
+				
+				\subsubsection{Obrazac uporabe UC20 - Kreiranje terapije za pacijenta}
+				
+				
+				Kada pacijent zatraži obrazac za prijavu na rehabilitaciju, web-aplikacija generira i vraća prijavu. Pacijent unosi informacije o terapiji, a sustav provjerava ispravnost podataka u bazi. Ako su svi podaci ispravno uneseni, omogućuje se terapija, ali ostaje nepotvrđena. Liječniku se prikazuje zahtjev za terapijom, gdje unosi datum, vrijeme i sobu. Web-aplikacija provjerava valjanost unesenih podataka, uključujući dostupnost sobe i preklapanje termina. Ako su podaci valjani, terapija se potvrđuje, a pacijentu se odobrava. Pacijent prima potvrdu o odobrenju terapije, a dodatno može pregledavati svoje rezultate unutar aplikacije. Ovaj proces osigurava učinkovito upravljanje terapijama, pravovremenu potvrdu i omogućuje pacijentima praćenje vlastitog napretka.
+				
+				\begin{figure}[H]
+					\includegraphics[scale=0.7]{dijagrami/Kreiranje terapije.jpeg}
+					\centering
+					\caption{Sekvencijski dijagram za UC20}
+					\label{fig:SequenceDiagram1}
+				\end{figure}
+				
 				\eject
 	
 		\section{Ostali zahtjevi}
