@@ -199,21 +199,21 @@
                 \noindent \underbar{\textbf{UC5 - Dodavanje zaposlenika u bazu}}
 					\begin{packed_item}
 	
-						\item \textbf{Glavni sudionik: }Administrator
+						\item \textbf{Glavni sudionik: }Superadministrator
 						\item  \textbf{Cilj:} Registrirati novog zaposlenika u sustavu
 						\item  \textbf{Sudionici:} Baza podataka/Sustav
-						\item  \textbf{Preduvjet:} Korisnik ima administratorske ovlasti i prijavljen je u sustav
+						\item  \textbf{Preduvjet:} Korisnik ima superadministratorske ovlasti i prijavljen je u sustav
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 	
-							\item Administrator šalje zahtjev za registraciju zaposleniika s podacima o zaposleniku.
+							\item Superadministrator šalje zahtjev za registraciju zaposleniika s podacima o zaposleniku.
 							\item Sustav provjerava ispravnost podataka.
                             \item Sustav registrira zaposlenika u sustavu.
 	
 						\end{packed_enum}
 						
-						\item  \textbf{Opis mogućih odstupanja:} Ako podaci nisu ispravni, sustav obavještava administratora o potrebnim ispravkama.
+						\item  \textbf{Opis mogućih odstupanja:} Ako podaci nisu ispravni, sustav obavještava superadministratoar o potrebnim ispravkama.
 						
 						
 					\end{packed_item}
@@ -221,15 +221,15 @@
                 \noindent \underbar{\textbf{UC6 - Brisanje zaposlenika}}
 					\begin{packed_item}
 	
-						\item \textbf{Glavni sudionik: }Administrator
+						\item \textbf{Glavni sudionik: }Superadministrator
 						\item  \textbf{Cilj:} Deaktivirati račun određenog zaposlenika u sustav
 						\item  \textbf{Sudionici:} Baza podataka/Sustav
-						\item  \textbf{Preduvjet:} Korisnik ima administratorske ovlasti i prijavljen je u sustav
+						\item  \textbf{Preduvjet:} Korisnik ima superadministratorske ovlasti i prijavljen je u sustav
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 	
-							\item Administrator šalje zahtjev za brisanje zaposlenika s određenim identifikatorom.
+							\item Superadministrator šalje zahtjev za brisanje zaposlenika s određenim identifikatorom.
 							\item Sustav označava zaposlenika kao neaktivnog u bazi podataka.
 	
 						\end{packed_enum}
@@ -300,20 +300,20 @@
                 \noindent \underbar{\textbf{UC10 - Kreiranje sobe}}
 					\begin{packed_item}
 	
-						\item \textbf{Glavni sudionik: }Zaposlenik
+						\item \textbf{Glavni sudionik: }Superadministrator
 						\item  \textbf{Cilj:} Kreirati novu sobu u sustavu
 						\item  \textbf{Sudionici:} Baza podataka/Sustav
-						\item  \textbf{Preduvjet:} Korisnik ima administratorske ovlasti i prijavljen je u sustav
+						\item  \textbf{Preduvjet:} Korisnik ima superadministratorske ovlasti i prijavljen je u sustav
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 	
-							\item Zaposlenik šalje zahtjev za kreiranje nove sobe s potrebnim podacima.
+							\item Superadministrator šalje zahtjev za kreiranje nove sobe s potrebnim podacima.
 							\item Sustav provjerava ispravnost podataka.
 	
 						\end{packed_enum}
 						
-						\item  \textbf{Opis mogućih odstupanja:} Ako podaci nisu ispravni, sustav obavještava administratora o potrebnim ispravkama.
+						\item  \textbf{Opis mogućih odstupanja:} Ako podaci nisu ispravni, sustav obavještava uperadministratora o potrebnim ispravkama.
 						
 						
 					\end{packed_item}
@@ -363,15 +363,15 @@
                 \noindent \underbar{\textbf{UC13 - Brisanje sobe}}
 					\begin{packed_item}
 	
-						\item \textbf{Glavni sudionik: }Zaposlenik
+						\item \textbf{Glavni sudionik: }Superadministrator
 						\item  \textbf{Cilj:} Obrisati sobu iz sustava
 						\item  \textbf{Sudionici:} Baza podataka/Sustav
-						\item  \textbf{Preduvjet:} Korisnik ima administratorske ovlasti i prijavljen je u sustav
+						\item  \textbf{Preduvjet:} Korisnik ima superadministratorske ovlasti i prijavljen je u sustav
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 	
-							\item Zaposlenik šalje zahtjev za brisanje sobe s određenim identifikacijskim brojem.
+							\item Superadministrator šalje zahtjev za brisanje sobe s određenim identifikacijskim brojem.
 							\item Sustav provjerava postoji li soba s navedenim identifikacijskim brojem.
                             \item Ako postoji, sustav briše sobu.
 	
@@ -385,21 +385,21 @@
                 \noindent \underbar{\textbf{UC14 - Kreiranje opreme}}
 					\begin{packed_item}
 	
-						\item \textbf{Glavni sudionik: }Zaposlenik
+						\item \textbf{Glavni sudionik: }Superadministrator
 						\item  \textbf{Cilj:} Kreirati novu opremu u sustavu
 						\item  \textbf{Sudionici:} Baza podataka/Sustav
-						\item  \textbf{Preduvjet:} Korisnik ima administratorske ovlasti i prijavljen je u sustav
+						\item  \textbf{Preduvjet:} Korisnik ima superadministratorske ovlasti i prijavljen je u sustav
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 	
-							\item Korisnik šalje zahtjev za kreiranje nove opreme s potrebnim podacima.
+							\item Superadministrator šalje zahtjev za kreiranje nove opreme s potrebnim podacima.
 							\item Sustav provjerava ispravnost podataka.
                             \item Sustav kreira novu opremu u sustav.
 	
 						\end{packed_enum}
 						
-						\item  \textbf{Opis mogućih odstupanja:} Ako podaci nisu ispravni, sustav obavještava zaposlenika o potrebnim ispravkama.
+						\item  \textbf{Opis mogućih odstupanja:} Ako podaci nisu ispravni, sustav obavještava superadministratora o potrebnim ispravkama.
 						
 						
 					\end{packed_item}
@@ -448,15 +448,15 @@
                 \noindent \underbar{\textbf{UC17 - Brisanje opreme}}
 					\begin{packed_item}
 	
-						\item \textbf{Glavni sudionik: }Zaposlenik
+						\item \textbf{Glavni sudionik: }Superadministrator
 						\item  \textbf{Cilj:} Obrisati opremu iz sustava
 						\item  \textbf{Sudionici:} Baza podataka/Sustav
-						\item  \textbf{Preduvjet:} Korisnik ima administratorske ovlasti i prijavljen je u sustav
+						\item  \textbf{Preduvjet:} Korisnik ima superadministratorske ovlasti i prijavljen je u sustav
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 	
-							\item Zaposlenik šalje zahtjev za brisanje opreme s određenim identifikacijskim brojem.
+							\item Superadministrator šalje zahtjev za brisanje opreme s određenim identifikacijskim brojem.
 							\item Sustav sustav provjerava postoji li oprema s navedenim identifikacijskim brojem.
                             \item Ako postoji, sustav briše opremu.
 	
@@ -506,23 +506,21 @@
 
                 \noindent \underbar{\textbf{UC20 - Kreiranje terapije za pacijenta}}
 					\begin{packed_item}
-	
-						\item \textbf{Glavni sudionik: }Pacijent, Zaposlenik
-						\item  \textbf{Cilj:} Dodati novu terapiju za određenog pacijenta
-						\item  \textbf{Sudionici:} Baza podataka/Sustav
-						\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav
-						\item  \textbf{Opis osnovnog tijeka:}
+						\item \textbf{Glavni sudionik:} Pacijent, Zaposlenik
+						\item \textbf{Cilj:} Dodati novu terapiju za određenog pacijenta
+						\item \textbf{Sudionici:} Baza podataka/Sustav
+						\item \textbf{Preduvjet:} Korisnik i zaposlenik prijavljeni u sustav
+						\item \textbf{Opis osnovnog tijeka:}
 						
-						\item[] \begin{packed_enum}
-	
+						\begin{packed_enum}
 							\item Korisnik šalje zahtjev za dodavanje nove terapije s podacima o terapiji.
-							\item Sustav provjerava ispravnost podataka.
-                            \item Sustav dodaje novu terapiju za određenog pacijenta u sustavu.
-	
+							\item Sustav provjerava ispravnost unesenih podataka.
+							\item Zaposlenik unosi dodatne informacije o terapiji poput datuma, vremena i sobe.
+							\item Sustav provjerava valjanost unesenih podataka, uključujući dostupnost sobe i preklapanje termina.
+							\item Ako su podaci valjani, terapija se odobrava zaposleniku i potvrđuje pacijentu.
 						\end{packed_enum}
 						
-						\item  \textbf{Opis mogućih odstupanja:} Ako podaci nisu ispravni, sustav obavještava korisnika o potrebnim ispravkama.
-						
+						\item \textbf{Opis mogućih odstupanja:} Ako podaci nisu ispravni, sustav obavještava korisnika o potrebnim ispravkama.
 						
 					\end{packed_item}
 
@@ -557,9 +555,13 @@
 						
 						\item[] \begin{packed_enum}
 	
-							\item Zaposlenik šalje zahtjev za unos rezultata terapije s podacima o rezultatima.
-							\item Sustav provjerava ispravnost podataka.
-                            \item Sustav unosi rezultate terapije u sustav.
+							\item Zaposlenik odabire pacijenta iz dostupne liste.
+							\item Sustav provjerava bazu podataka kako bi dohvatio relevantne podatke o pacijentu.
+							\item U slučaju uspješnog pronalaska pacijenta, zaposlenik šalje zahtjev za unos rezultata terapije, pružajući relevantne podatke o rezultatima.
+							\item Sustav provjerava ispravnost unesenih podataka.
+							\item Ako su podaci ispravni, sustav zabilježava rezultate terapije u bazu podataka.
+							\item Nakon uspješnog zapisivanja, sustav prikazuje na zaslonu potvrdu o uspješno unesenom zapisu, pružajući zaposleniku vizualnu potvrdu.
+							\item Pacijent ima mogućnost pregleda svojih rezultata terapije unutar web-aplikacije.
 	
 						\end{packed_enum}
 						
@@ -681,7 +683,7 @@
 					\includegraphics[scale=0.7]{dijagrami/Kreiranje terapije.jpeg}
 					\centering
 					\caption{Sekvencijski dijagram za UC20}
-					\label{fig:SequenceDiagram1}
+					\label{fig:SequenceDiagram3}
 				\end{figure}
 				
 				\eject
