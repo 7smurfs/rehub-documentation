@@ -386,9 +386,14 @@ atributa. Baza podataka ove aplikacije sastoji se od sljedećih entiteta:
 		
 		\section{Dijagram aktivnosti}
 			
-			\textbf{\textit{dio 2. revizije}}\\
+			Pacijent započinje proces prijavom u sustav putem web-aplikacije, unoseći svoje korisničke podatke. Web-aplikacija šalje upit za provjeru tih podataka bazi podataka, koja zatim vraća rezultat. Ako su uneseni podaci neispravni, pacijent mora ponovno unijeti podatke, inače mu se prikazuje stranica za pacijente. Nakon uspješne prijave, pacijent odabire stvaranje nove terapije, što rezultira prikazom forme za unos podataka o bolesti i liječniku koji je dao uputnicu. Ponovno se šalje upit za provjeru tih podataka bazi, a ako su neispravni, pacijent ponovno unosi informacije; inače, liječnik prima zahtjev za terapijom i unosi podatke o datumu, vremenu i sobi za terapiju. Web-aplikacija ponovno šalje upit za provjeru podataka bazi, a u slučaju neispravnih podataka, liječnik ih ponovno unosi. U suprotnom, web-aplikacija šalje e-mail o potvrdi terapije i prikazuje stranicu za pacijenta s dodijeljenim terminom. Nakon toga, podaci o zahtjevu za terapijom spremaju se u sustav.
 			
-			 \textit{Potrebno je priložiti dijagram aktivnosti s pripadajućim opisom. Dijagram aktivnosti treba prikazivati značajan dio sustava.}
+			\begin{figure}[H]
+				\includegraphics[scale=0.7]{dijagrami/Activity diagram.jpeg}
+				\centering
+				\caption{Dijagram aktivnosti}
+				\label{fig:ActivityDiagram}
+			\end{figure}
 			
 			\eject
 		\section{Dijagram komponenti}
