@@ -50,12 +50,89 @@
 		
 		\section{Upute za puštanje u pogon}
 		
-			\textbf{\textit{dio 2. revizije}}\\
-		
-			 \textit{U ovom poglavlju potrebno je dati upute za puštanje u pogon (engl. deployment) ostvarene aplikacije. Na primjer, za web aplikacije, opisati postupak kojim se od izvornog kôda dolazi do potpuno postavljene baze podataka i poslužitelja koji odgovara na upite korisnika. Za mobilnu aplikaciju, postupak kojim se aplikacija izgradi, te postavi na neku od trgovina. Za stolnu (engl. desktop) aplikaciju, postupak kojim se aplikacija instalira na računalo. Ukoliko mobilne i stolne aplikacije komuniciraju s poslužiteljem i/ili bazom podataka, opisati i postupak njihovog postavljanja. Pri izradi uputa preporučuje se \textbf{naglasiti korake instalacije uporabom natuknica} te koristiti što je više moguće \textbf{slike ekrana} (engl. screenshots) kako bi upute bile jasne i jednostavne za slijediti.}
+			Aplikacija je uspješno implementirana i dostupna na platformi Netlify. Za poslužitelj backend-a koristi se alat Render. Kako bi iskoristili sve korisne značajke koje Render pruža, potrebno je stvoriti instance baze podataka, poslužitelja za backend, te poslužitelja za frontend aplikacije. Prvi korak je kreiranje PostgreSQL baze podataka.
 			
-			
-			 \textit{Dovršenu aplikaciju potrebno je pokrenuti na javno dostupnom poslužitelju. Studentima se preporuča korištenje neke od sljedećih besplatnih usluga: \href{https://aws.amazon.com/}{Amazon AWS}, \href{https://azure.microsoft.com/en-us/}{Microsoft Azure} ili \href{https://www.heroku.com/}{Heroku}. Mobilne aplikacije trebaju biti objavljene na F-Droid, Google Play ili Amazon App trgovini.}
-			
+			\begin{figure}[H]
+				\includegraphics[scale=0.15]{dijagrami/PostgresSQL.jpeg}
+				\centering
+				\caption{Izbornik za stvaranje nove baze podataka}
+				\label{fig:PostgresSQL}
+			\end{figure}
 			
 			\eject 
+			
+			Potrebno je upisati ime baze, odabrati regiju poslužitelja instance i označiti tip instance koji će se koristiti.
+			
+			\begin{figure}[H]
+				\includegraphics[scale=0.15]{dijagrami/stvaranje-baze.jpeg}
+				\centering
+				\caption{Stvaranje nove baze podataka}
+				\label{fig:stvaranje-baze}
+			\end{figure}
+			
+			\eject
+			
+			Nakon ovih koraka treba pokrenuti stvaranje pritiskom na tipku ”Create”.
+			Pokazuje se prozor u kojemu su navedeni osnovni podaci o bazi kao ime, verzija, regija, prostor za pohranu, API ključ, itd.
+			Kad je baza uspješno kreirana, potrebno je uzeti podatke koje treba dati backendu aplikacije. Ti podatci se nalaze u poljima \textit{Hostname}, \textit{Port}, \textit{Database}, \textit{Username}, \textit{Password} i \textit{External Database URL}.
+			
+			\pagebreak
+			
+			Backend je implementiran na Render platformi, koristeći Docker slike koje se automatski generiraju i implementiraju prilikom svakog push-a na master granu. Proces implementacije upravlja se pomoću GitHub Actions radnog toka definiranog u datoteci \textit{build-test-deploy.yaml}, koji obuhvaća korake poput preuzimanja koda, postavljanja JDK 17, izgradnje, testiranja, kopiranja JAR datoteke i prijenosa artefakta. Docker slika se označava tijekom procesa izgradnje. 
+			
+			\begin{figure}[H]
+				\includegraphics[scale=0.15]{dijagrami/built-test-deploy.jpeg}
+				\centering
+				\caption{Datoteka \textit{Datoteka build-test-deploy}}
+				\label{fig:built-test-deploy}
+			\end{figure}
+			
+			\eject
+			
+			Konfiguracija backend-a upravlja se putem datoteke \textit{application-prod.properties}, koja sadrži ključne parametre za konfiguraciju poslužitelja, prijenosa datoteka, podatkovnog izvora, e-pošte, ponovnog postavljanja lozinke, provjere korisnika, JPA i Flyway konfiguraciju te Jackson konfiguraciju. Svi ovi parametri su pažljivo prilagođeni kako bi podržali funkcionalnosti i integracije aplikacije, čime se osigurava glatki i učinkoviti razvojni i implementacijski proces backend-a.
+			
+			\begin{figure}[H]
+				\includegraphics[scale=0.15]{dijagrami/app-prod.jpeg}
+				\centering
+				\caption{Datoteka \textit{application-prod.properties}}
+				\label{fig:app-prod}
+			\end{figure}
+			
+			\eject
+			
+			URL backend-a: https://rehub-backend.onrender.com/
+			
+			\pagebreak
+			
+			Frontend aplikacija je postavljena za automatski deploy na Netlify prilikom push-a na master granu. U datoteci \textit{build-deploy.yaml} specificiran je GitHub Actions radni tok za deploy na Netlify. 	
+			
+			\begin{figure}[H]
+				\includegraphics[scale=0.15]{dijagrami/bulid-and-deploy.jpeg}
+				\centering
+				\caption{Datoteka \textit{build-and-deploy.yaml}}
+				\label{fig:build-and-deploy}
+			\end{figure}
+			
+			\eject
+			
+			U Netlify konzoli, u postavkama projekta, konfigurirajte \textit{build} opcije.
+			
+			\begin{figure}[H]
+				\includegraphics[scale=0.15]{dijagrami/netlify-conf.jpeg}
+				\centering
+				\caption{Postavljanje konfiguracije}}
+				\label{fig:netlify-conf}
+			\end{figure}
+			
+			\textit{Base Directory}: Postavite na direktorij u kojem se nalazi package.json.
+			\textit{Build Command}: Postavite na naredbu koja pokreće izgradnju projekta, u ovom slučaju npm run build.
+			\textit{Publish Directory}: Odredite direktorij koji sadrži izgrađene artefakte, u ovom slučaju build.
+			
+			\eject
+			
+			Aplikacija je puštena u pogon i spremna za uporabu. Pristupa se preko adrese koja je navedena za instancu frontenda.
+			https://rehub.netlify.app
+			
+			\eject
+			
+			
